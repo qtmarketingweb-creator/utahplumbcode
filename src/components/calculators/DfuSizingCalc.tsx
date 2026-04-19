@@ -51,7 +51,7 @@ export default function DfuSizingCalc() {
             </select></div>
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y0">
-          {DRACN_FIXTURES.map(f => <div key={f.name} className="flex items-center gap-2 py-1 border-b border-gray-100 last:border-0">
+          {DRAIN_FIXTURES.map(f => <div key={f.name} className="flex items-center gap-2 py-1 border-b border-gray-100 last:border-0">
               <span className="text-[11px] text-gray-600 flex-1 leading-tight">{f.name}</span>
               <span className="text-[10px] font-mono text-brand w-5 text-right flex-shrink-0">{f.dfu}</span>
               <input type="number" min={0} step={1} value={qtys[f.name]||0} onChange={e => setQtys(q => ({...q,[f.name]: +e.target.value||0}))}
