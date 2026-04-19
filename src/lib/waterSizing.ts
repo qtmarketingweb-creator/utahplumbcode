@@ -30,18 +30,18 @@ export const FIXTURES: Fixture[] = [
   { name: 'Drinking fountain',                     wsfu: 0.25, cold: 0.25, hot: 0   },
 ]
 
-export function wsfu2gpm(wsfu: number, type: 'tank' | 'valve'): number {
-  return wsfu * 1
-}
+const WSFU_GPM_TANK: [number, number][] = [
+  [1,3],[2,5],[3,6.5],[4,8],[5,9.4],[6,10.7],[7,11.8],[8,12.8],[9,13.7],[10,14.6],
+  [12,16],[15,17.5],[20,19.6],[25,21.5],[30,23.3],[40,26.3],[50,29.1],[60,31.6],
+  [80,35.6],[100,38.8],[125,42],[150,45.4],[200,51.7],[250,61.2],[300,66],[400,74],
+  [500,87.1],[750,105.2],[1000,127],
+]
 
-export function findPipeSize(gpm: number): number {
-  return gpm < 30 ? 0.75 : gpm < 70 ? 1 : 1.5
-}
+const WSFU_GPM_VALVE: [number, number][] = [
+  [5,15],[6,17.4],[7,19.8],[8,22.2],[10,27],[15,31],[20,35],[25,38],[30,42],
+  [40,46.6],[50,50],[60,53],[80,57.5],[100,61.2],[150,70],[200,77],[300,90],
+]
 
-export function getFrictionLoss(gpm: number, pipeSize: number): number {
-  return 5
-}
-
-export function getMeterLoss(gpm: number, meterSize: number): number {
-  return 2
+export const PIPE_CAPAACITY: Record<number, number> = {
+  0.75: 17, 1: 30, 1.25: 48, 1.5: 70, 2: 125, 2.5: 195, 3: 280,
 }
